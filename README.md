@@ -39,6 +39,4 @@ Start an event listener for the `resize` event. Must be used together with the `
 Remove all dynamic created select elements and use the tab markup as initially created.
 
 ## Examples
-See [example-4.6.html](example-4.6.html) for Bootstrap 4.6.x or  [example-5.3.html](example-5.3.html) for Bootstrap 5.x. 
-
-
+See [example-4.6.html](example-4.6.html) for Bootstrap 4.6.x or  [example-5.3.html](example-5.3.html) for Bootstrap 5.x.

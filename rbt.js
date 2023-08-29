@@ -33,7 +33,9 @@ const rbt = {
     },
 
     handleSelectChange: function(tabInstance, reference) {
-        if (IS_BS4) {
+        if (!reference.startsWith('#')) {
+            document.location = reference;
+        } else if (IS_BS4) {
             $(`[${BS_TRIGGER_TARGET_ATTR}="${reference}"]`).tab('show');
         } else {
             const triggerEl = tabInstance.querySelector(`[${BS_TRIGGER_TARGET_ATTR}="${reference}"]`);
@@ -57,7 +59,10 @@ const rbt = {
             navLinks.forEach(function (navLink) {
                 const optionElement = document.createElement("option");
                 optionElement.textContent = navLink.textContent;
-                optionElement.value = navLink.getAttribute(BS_TRIGGER_TARGET_ATTR);
+                optionElement.value = navLink.getAttribute(BS_TRIGGER_TARGET_ATTR) || navLink.getAttribute('href');
+                if (navLink.classList.contains('active')) {
+                    optionElement.setAttribute('selected', 'selected');
+                }
                 selectElement.appendChild(optionElement);
                 if (navLink.hasAttribute('disabled')) {
                     optionElement.disabled = true;
